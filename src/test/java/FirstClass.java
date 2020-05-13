@@ -3,6 +3,8 @@ import org.testng.annotations.Test;
 public class FirstClass {
 
 
+    //////sssssssss
+
     //prints something
     @Test
     public void testName001(){
@@ -78,29 +80,26 @@ public class FirstClass {
 
 
 
-
-
-
-
-/**
-
-
     //Create all of the primitives (except long and double) with different values.
     // Concatenate them into a string and print it to the screen so it will print: H3110 w0r1d 2.0 true
     @Test
-    public void testName002(){
-    byte num1 = 3; //value of byte data type size is -128 to 127
-    short num2 = 11;  // value of -32,768 and a maximum value of 32,767 (inclusive)
-    int num3 = 0;      // minimum value of -231 and a maximum value of 231-1.
+    public void testName008(){
+    byte num1 = 31;        //value of byte data type size is -128 to 127
+    short num2 = 1;     // value of -32,768 and a maximum value of 32,767 (inclusive)
+    int num3 = 0;      // minimum value of -2.147.483.648 and a maximum value of 2.147.483.647.
+    float num4 = 2.0f;  //up to 7 decimal digits
+    char character1 = 'H';
+    char character2 = 'w';
+    char character3 = 'r';
+    char character4 = 'd';
+    boolean z = true;    //true, false
 
+    String completeMessage;
+    completeMessage = character1 + "" + num1 + "" + num2 + "" + num3 + " " + character2 + num3 + character3 + num2 + character4 + " " + num4 + " " + z;
 
-float (float number, 4 bytes)
-char (a character, 2 bytes)
-boolean (true or false, 1 byte)
-
-
+    System.out.println(completeMessage);
     }
-*/
+
 
 
 
