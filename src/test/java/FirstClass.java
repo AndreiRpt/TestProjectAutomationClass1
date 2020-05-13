@@ -2,9 +2,6 @@ import org.testng.annotations.Test;
 
 public class FirstClass {
 
-
-    //////update
-
     //prints something
     @Test
     public void testName001(){
