@@ -77,10 +77,20 @@ public class FirstClass {
 
 
 
-    //Create all of the primitives (except long and double) with different values.
-    // Concatenate them into a string and print it to the screen so it will print: H3110 w0r1d 2.0 true
+    /** JAVA EXERCISE*/
+
+
     @Test
-    public void testName008(){
+    public void testName008() {
+        System.out.println("Hello, World!");
+    }
+
+
+
+    /**Create all of the primitives (except long and double) with different values.
+    Concatenate them into a string and print it to the screen so it will print: H3110 w0r1d 2.0 true */
+    @Test
+    public void testName009(){
     byte num1 = 31;        //value of byte data type size is -128 to 127
     short num2 = 1;     // value of -32,768 and a maximum value of 32,767 (inclusive)
     int num3 = 0;      // minimum value of -2.147.483.648 and a maximum value of 2.147.483.647.
@@ -98,6 +108,41 @@ public class FirstClass {
     }
 
 
+    /** Change the variables in the first section, so that each if statement resolves as true.*/
+    @Test
+    public void testName010() {
+        String a = "Wow";
+        String b = a;
+        String c = b + "!";
+        String d = c;
+
+        boolean b1 = a == b;
+        boolean b2 = d.equals(b + "!");
+        boolean b3 = !c.equals(a);
+
+        if (b1 && b2 && b3) {
+            System.out.println("Success!");
+        }
+
+    }
+
+
+    /** Change the values in numbers so it will not raise an error. */
+    @Test
+    public void testName011() {
+        int[] numbers = {1, 2, 3};   // values of the array numbers
+        int length = numbers[2];    // int length = numbers[3];  // the integer length = the value of index 3, which doesn't exist.
+                                   // Changed index to 2.  The length = 3
+
+        char[] chars = new char[length];  // the array chars has the size of integer length 3
+        chars[numbers.length - 1] = 'y'; // chars[numbers.length + 4] = 'y'; //the index 7 (3 + 4)of array chars = y.
+                                        //the index 7 does not exist. Max index is 2.
+                                       //So we could change to index 2 or numbers.length -1 which is also index 2
+        System.out.println("Done!");
+
+        // we can also change the value of index 2 of the numbers array to 8 or more and leave the code on line 138 unchanged.
+
+    }
 
 
 
