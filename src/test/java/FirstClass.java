@@ -1,4 +1,9 @@
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.reporters.jq.INavigatorPanel;
+
+import java.util.Arrays;
 
 public class FirstClass {
 
@@ -49,11 +54,11 @@ public class FirstClass {
     }
 
 
-    //TODO: change to accept parametersso it will always print correct message
+    //TODO: change to accept parameters so it will always print correct message
     @Test
     public void testName006() {
-        int a = 4;
-        int b = 4;
+        int a = 6;
+        int b = 5;
 
         if (a == b) {
             System.out.println("Ohhh! So a is " + a +"!");
@@ -63,6 +68,8 @@ public class FirstClass {
         }
 
     }
+
+
 
     @Test
     public void testName007() {
@@ -126,6 +133,7 @@ public class FirstClass {
 
     }
 
+
     /** Change the values in numbers so it will not raise an error. */
     @Test
     public void testName011() {
@@ -143,10 +151,173 @@ public class FirstClass {
 
     }
 
+    /** Loop through and print out all even numbers, each in a separate line,
+     * from the numbers list in the same order they are received.
+     * Don't print any numbers that come after 237 in the sequence.*/
+
+    //TODO not finished
+    @Test
+    public void test012() {
+
+        int[] numbers = {
+                951, 402, 984, 651, 360, 69, 408, 319, 601, 485, 980, 507, 725, 547, 544,
+                615, 83, 165, 141, 501, 263, 617, 865, 575, 219, 390, 984, 592, 236, 105, 942, 941,
+                386, 462, 47, 418, 907, 344, 236, 375, 823, 566, 597, 978, 328, 615, 953, 345,
+                399, 162, 758, 219, 918, 237, 412, 566, 826, 248, 866, 950, 626, 949, 687, 217,
+                815, 67, 104, 58, 512, 24, 892, 894, 767, 553, 81, 379, 843, 831, 445, 742, 717,
+                958, 609, 842, 451, 688, 753, 854, 685, 93, 857, 440, 380, 126, 721, 328, 753, 470,
+                743, 527};
+
+        // Your code goes here
+
+
+    }
+
+
+
+    /** Interview questions */
+
+    // Loop that will return even numbers from 1-10
+    @Test
+    public void test00001() {
+        for (int i = 1; i <=10; i++) {
+            if (i%2==0)
+                System.out.println(i);
+        }
+    }
+
+    //If you want to print "hello world" at even numbers
+    // then how would you do it?
+    @Test
+    public void printHelloAtEvenNumbers() {
+        for (int i = 1; i <= 10; i++) {
+            if (i%2==0)
+                System.out.println("hello world");
+        }
+    }
+
+
+
+    public void printAllMembersOfArray(int[] arrayParameter) {
+
+        for (int i = 0; i < arrayParameter.length; i++) {
+            int currentElement = arrayParameter[i];
+            System.out.println(currentElement);
+        }
+    }
+
+//enchaced loop
+    public void printAllMembersOfArrayE(int[] arrayParameter) {
+        for (int eachMember : arrayParameter) {
+            System.out.println(eachMember);
+        }
+    }
+
+
+    @Test
+    public void testName0007() {
+        int[] arrOfIntegers = {1, 9, 9, 5};
+        printAllMembersOfArray(arrOfIntegers);
+    }
+
+
+   /* Swap two numbers in an array */
+    //1. create an inout array
+    //2. create a method with parameter
+    //3. new method will also take indexes of L eft and R ight elements
+    //4. use indexes R and L respective elements will be swapped with eachover
+    //5. Print out final version of the array
+    @Test
+    public void test_swapNumbers() {
+        int[] input = {1, 2, 3, 4, 5, 6};
+        int indexL = 0;
+        int indexR = 1;
+
+        swap(input, indexL, indexR);
+        printAllMembersOfArray(input);
+        //or
+        System.out.println(Arrays.toString(input));
+    }
+
+    // break your own code
+    @Test
+    public void test_swap_Exception () {
+        int[] input = {1, 2, 3, 4, 5, 6};
+        int indexL = -1;
+        int indexR = 1;
+
+        checkInputs(input, indexL, indexR);
+        swap(input, indexL, indexR);
+        printAllMembersOfArray(input);
+    }
+
+    //TODO: add checks for input array
+    private void checkInputs(int[] input, int indexL, int indexR) {
+        if(indexL >= 0 && indexL < input.length && indexR >= 0 && indexR < input.length) {
+            System.out.println("Inputs are Ok");
+        }
+        else {
+            throw new AssertionError("Inputs are not OK: indexL=" + indexL + ", indexR=" + indexR  );
+        }
+
+    }
+
+
+    private void swap(int[] input, int indexL, int indexR){
+    int temporaryElement = 0;
+    temporaryElement = input[indexL];
+    input[indexL] = input[indexR];
+    input[indexR] = temporaryElement;
+    }
+
+
+   /** How would you count the number of letters 'l'
+    */
+  //TODO: break down into sub-steps (external methods), 'letter' should be a parameter as well
+   @Test
+   public void testCountLetters() {
+       String input = "hello world";
+       int result = 0;
+       char letterParamenter = 'l';
+
+       char[] charArray = input.toCharArray(); // transform String input to array
+
+       for (char eachChar : charArray){
+           if(eachChar == letterParamenter)
+               result++;
+       }
+       System.out.println(result);
+   }
+
+    @Test
+    public void test_ActorCreation() {
+       Actor actor01 = new Actor(30, "Ivan", "Ivanov", 155, 100);
+       int acto01Age = actor01.getAge();
+
+        System.out.println(acto01Age);
+
+        System.out.println(actor01.firstName + " " + actor01.lastName);
+
+        Assert.assertEquals(acto01Age, 30);
+    }
+
+
+
+
+
+
+
 
 
 
 
 }
+
+
+
+
+
+
+
 
 
