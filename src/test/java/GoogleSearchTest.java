@@ -1,27 +1,30 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static java.lang.Thread.sleep;
 
+
+
 public class GoogleSearchTest {
 
     /*
         1. open the google.com webpage
-        2. in search box type query string and submit search
+        2. in search box type query and submit search
         3. verify that results page is showing up
         4. verify that amount of results is more than 100
-
      */
-
 
     //TODO refactor this to step by step format
     @Test
     public void testName001() {
-        System.setProperty("webdriver.geck........")
+        System.setProperty("webdriver.gecko.driver", "src/test/resources/geckodriver.exe");
         WebDriver driver = new FirefoxDriver();
 
         String queryString = "Portnov Computer School";
-
         driver.get("https://www.google.com");
 
 
@@ -37,7 +40,8 @@ public class GoogleSearchTest {
         }
 
         WebElement resultsStatsElement = driver.findElement(By.id("result-stats"));
-        String resultsStatsText = resultsStatsElement.getText();
+        String resultsStatsText;
+        resultsStatsText = resultsStatsElement.getText();
 
         String[] stringArray = resultsStatsText.split(" ");
 
@@ -47,7 +51,7 @@ public class GoogleSearchTest {
 
         int amountOfResultsParsed = Integer.parseInt(amountOfResultsFixed);
 
-        Assert.assertTrue(amountOfResultsParsed > 100);
+        Assert.assertTrue( amountOfResultsParsed > 100);
 
 
 
@@ -57,3 +61,4 @@ public class GoogleSearchTest {
 
     }
 }
+
